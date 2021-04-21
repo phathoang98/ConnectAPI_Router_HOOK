@@ -6,6 +6,16 @@ function ProductList(props) {
 
     // ---- Lấy Dữ Liệu cho ProductItem
     let products = useSelector(state => state.products)
+    let keyword = useSelector(state => state.search)
+
+
+    // --- Mảng được lọc sau khi Search tên product
+    products = products.filter((product) => {
+        return product.name.toLowerCase().indexOf(keyword.toLowerCase()) !== -1;
+    })
+
+
+    // ---- Show các ProductItem cho Danh Sách
 
     let showProducts = (products) => {
         if (products.length > 0) {

@@ -1,7 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { actAddProductRequest, actGetProductRequest, actUpdateProductRequest } from '../../../Redux/actions'
+import {
+    actAddProductRequest,
+    actGetProductRequest,
+    actUpdateProductRequest
+} from '../../../Redux/actions'
 function EditProduct(props) {
 
     // --- State lưu dữ liệu nhập vào Input
@@ -38,6 +42,7 @@ function EditProduct(props) {
     }, [match])
 
     // ----- Đổ dữ liệu lấy đc ra Input
+
     useEffect(() => {
         if (itemEditing) {
             setData({
@@ -139,11 +144,11 @@ function EditProduct(props) {
                         <div className="mt-4">
                             <Link to="/product-list" className="btn btn-secondary mr-2">
                                 <i className="fas fa-arrow-circle-left"></i> Trở lại
-                        </Link>
+                            </Link>
 
                             <button type="submit" className="btn btn-primary">
                                 <i className="fas fa-check"></i> Lưu lại
-                    </button>
+                            </button>
                         </div>
 
                     </form>

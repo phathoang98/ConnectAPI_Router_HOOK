@@ -106,3 +106,13 @@ const actUpdateProduct = (product) => {
         product
     }
 }
+
+
+// ------ TÌM KIẾM TÊN SẢN PHẨM
+
+export const actSearchProduct = (keyword) => {
+    return {
+        type: Types.SEARCH_PRODUCT,
+        keyword
+    }
+}

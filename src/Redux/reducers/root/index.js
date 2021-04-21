@@ -2,6 +2,9 @@
 import { combineReducers } from "redux";
 import products from '../products'
 import itemEditing from '../itemEditing'
+import search from '../search'
+
+
 
 /**
  *  ----- ROOT REDUCER
@@ -10,7 +13,8 @@ import itemEditing from '../itemEditing'
 
 const rootReducer = combineReducers({
     products,
-    itemEditing
+    itemEditing,
+    search,
 })
 
 export default rootReducer
