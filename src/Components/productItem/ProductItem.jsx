@@ -18,7 +18,12 @@ function ProductItem(props) {
      * ---------- Xóa Sản Phẩm
      */
     const onDelete = (id) => {
-        dispatch(actDeleteProductRequest(id))
+
+        // Muốn sử dụng đc confirm() --> phải có dòng comment bên dưới và đặt đúng ngay vị trí đó
+
+        if (confirm('Bạn có chắc sẽ xóa sản phẩm này ?')) {//eslint-disable-line
+            dispatch(actDeleteProductRequest(id))
+        }
     }
 
 
@@ -31,7 +36,7 @@ function ProductItem(props) {
             <td>{index + 1}</td>
             <td>{product.id}</td>
             <td>{product.name}</td>
-            <td>{product.price}</td>
+            <td>{parseInt(product.price).toLocaleString()}$</td>
             <td>
                 <span className={`badge badge-${statusClass}`}>
                     {statusName}

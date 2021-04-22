@@ -24,7 +24,7 @@ function ProductList(props) {
     let [pages, setPages] = useState({
         currentPage: 1, // Trang mặc định hiện ra từ ban đầu 
 
-        newsPerPage: 5  // Số thông tin hiện trên mỗi trang , giá trị là TỔNG các dòng tin 
+        newsPerPage: 6  // Số thông tin hiện trên mỗi trang , giá trị là TỔNG các dòng tin 
     })
 
     let { currentPage, newsPerPage } = pages
