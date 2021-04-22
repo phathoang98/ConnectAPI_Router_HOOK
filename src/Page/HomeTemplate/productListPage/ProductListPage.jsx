@@ -15,6 +15,7 @@ function ProductListPage(props) {
         dispatch(actFetchProductsRequest())
     }, [])
 
+
     return (
 
         <div className="container mt-4">
@@ -23,7 +24,7 @@ function ProductListPage(props) {
 
                     <div className="row">
                         <div className="col-5">
-                            <Link to="/product/add" className="btn btn-info">
+                            <Link to="/product/add" exact className="btn btn-info">
                                 <i class="fas fa-plus-square mr-1"></i> Thêm sản phẩm
                             </Link>
                         </div>

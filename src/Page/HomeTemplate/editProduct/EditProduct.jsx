@@ -39,22 +39,33 @@ function EditProduct(props) {
             let id = match.params.id
             dispatch(actGetProductRequest(id))
         }
-    }, [match])
+    }, [])
 
     // ----- Đổ dữ liệu lấy đc ra Input
 
     useEffect(() => {
         if (itemEditing) {
             setData({
-
                 id: itemEditing.id,
                 txtName: itemEditing.name,
                 txtPrice: itemEditing.price,
                 chkbStatus: itemEditing.status
             })
         }
+
     }, [itemEditing])
 
+    // ------- Khi đổ dữ liệu xong và goBack về , ấn "THÊM SẢN PHẨM" clear hết dữ liệu đã đổ ra sửa trước đó
+
+    useEffect(() => {
+
+        setData({
+            id: "",
+            txtName: "",
+            txtPrice: "",
+            chkbStatus: ""
+        })
+    }, [])
 
 
     /**
