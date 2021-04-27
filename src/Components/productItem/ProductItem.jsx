@@ -35,6 +35,10 @@ function ProductItem(props) {
         <tr>
             <td>{index + 1}</td>
             <td>{product.id}</td>
+            <td>
+                <img src={product.img} alt={product.img} width={50} height={50} />
+            </td>
+
             <td>{product.name}</td>
             <td>{parseInt(product.price).toLocaleString()}$</td>
             <td>

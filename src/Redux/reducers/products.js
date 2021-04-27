@@ -1,5 +1,6 @@
 
 import * as Types from '../constants'
+import _ from 'lodash'
 
 /**
  *  ----------- Products Reducers
@@ -7,22 +8,9 @@ import * as Types from '../constants'
 
 let initialState = []
 
-let findIndex = (products, id) => {
-    let result = -1;
-
-    products.forEach((product, index) => {
-        if (product.id === id) {
-            result = index
-        }
-    })
-
-    return result
-}
-
 
 const products = (state = initialState, action) => {
 
-    let index = -1;
     let { product } = action
 
     switch (action.type) {
@@ -43,7 +31,12 @@ const products = (state = initialState, action) => {
             return [...state]
 
         case Types.UPDATE_PRODUCT:
-            index = findIndex(state, product.id)
+
+            // Sử dụng "lodash" với hàm findIndex tự có sẵn 
+            let index = _.findIndex(state, (item) => {
+                return item.id === product.id
+            })
+
             state[index] = product
             return [...state]
 

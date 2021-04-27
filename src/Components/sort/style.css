@@ -1,0 +1,8 @@
+.sort_selected::after {
+  content: "✔";
+  font-family: FontAwesome;
+  font-weight: normal;
+  font-style: normal;
+  margin: 0px 0px 0px 10px;
+  display: inline-block;
+}

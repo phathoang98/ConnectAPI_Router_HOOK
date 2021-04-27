@@ -108,7 +108,7 @@ const actUpdateProduct = (product) => {
 }
 
 
-// ------ TÌM KIẾM TÊN SẢN PHẨM
+// ---------- TÌM KIẾM TÊN SẢN PHẨM
 
 export const actSearchProduct = (keyword) => {
     return {
@@ -116,3 +116,17 @@ export const actSearchProduct = (keyword) => {
         keyword
     }
 }
+
+// ------- SẮP XẾP DANH SÁCH SẢN PHẨM THEO THỨ TỰ CHỮ CÁI 
+
+export const actSortProduct = (sort) => {
+    return {
+        type: Types.SORT_PRODUCT,
+        sort
+    }
+}
+
+
+
+
+

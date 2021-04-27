@@ -19,10 +19,11 @@ function EditProduct(props) {
         txtName: '',
         txtPrice: '',
         chkbStatus: "",
+        img: '',
         status: false
     })
 
-    let { id, txtName, txtPrice, chkbStatus, status } = dataInput
+    let { id, txtName, txtPrice, chkbStatus, status, img } = dataInput
     let { history, match } = props
 
 
@@ -53,20 +54,22 @@ function EditProduct(props) {
                 id: itemEditing.id,
                 txtName: itemEditing.name,
                 txtPrice: itemEditing.price,
+                img: itemEditing.img,
                 chkbStatus: itemEditing.status
             })
         }
 
     }, [itemEditing])
 
-    // ------- Khi đổ dữ liệu xong và goBack về , ấn "THÊM SẢN PHẨM" clear hết dữ liệu đã đổ ra sửa trước đó
+    // --- Khi đổ dữ liệu xong và goBack về , ấn "THÊM SẢN PHẨM" clear hết dữ liệu đã đổ ra sửa trước đó
     useEffect(() => {
 
         setData({
             id: "",
             txtName: "",
             txtPrice: "",
-            chkbStatus: ""
+            chkbStatus: "",
+            img: ''
         })
     }, [])
 
@@ -105,6 +108,7 @@ function EditProduct(props) {
                 }
             }
         }
+
         // valid : false --> tồn tại trường hợp trên 
         if (!valid) {
             newProduct.status = true // -->  thông báo hộp thoại cho người dùng 
@@ -127,7 +131,8 @@ function EditProduct(props) {
             id: id,
             name: txtName,
             price: txtPrice,
-            status: chkbStatus
+            status: chkbStatus,
+            img: img
         }
 
         // ------ SỬA SẢN PHẨM
@@ -170,6 +175,15 @@ function EditProduct(props) {
                         </div>
 
                         <div className="form-group">
+                            <label> <b>Hình ảnh:</b> </label>
+                            <input
+                                type="text" className="form-control"
+                                name="img" required value={img}
+                                onChange={onChange}
+                            />
+                        </div>
+
+                        <div className="form-group">
                             <label> <b>Trạng thái:</b> </label>
                         </div>
 
@@ -187,7 +201,6 @@ function EditProduct(props) {
                         <div className="mt-4">
                             <Link to="/product-list" className="btn btn-secondary mr-2">
                                 <i className="fas fa-arrow-circle-left"></i> Trở lại
-
                             </Link>
 
                             <button type="submit" className="btn btn-primary">

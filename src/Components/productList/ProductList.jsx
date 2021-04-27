@@ -8,7 +8,24 @@ function ProductList(props) {
     // ---- Lấy Dữ Liệu cho ProductItem
     let products = useSelector(state => state.products)
     let keyword = useSelector(state => state.search)
+    let sort = useSelector(state => state.sort)
 
+    // Sort  ( SẮP XẾP DỮ LIỆU TRONG MẢNG THEO "TÊN" VÀ TRẠNG THÁI "CÒN HÀNG, HẾT HÀNG")
+
+    if (sort.by === 'name') {
+        products.sort((a, b) => {
+            if (a.name > b.name) return sort.value;
+            else if (a.name < b.name) return -sort.value;
+            else return 0;
+        });
+    }
+    else {
+        products.sort((a, b) => {
+            if (a.status > b.status) return -sort.value;
+            else if (a.status < b.status) return sort.value;
+            else return 0;
+        });
+    }
 
     // --- Danh sách các Products được lọc ra khi "Search" 
 
@@ -24,7 +41,7 @@ function ProductList(props) {
     let [pages, setPages] = useState({
         currentPage: 1, // Trang mặc định hiện ra từ ban đầu 
 
-        newsPerPage: 6  // Số thông tin hiện trên mỗi trang , giá trị là TỔNG các dòng tin 
+        newsPerPage: 5  // Số thông tin hiện trên mỗi trang , giá trị là TỔNG các dòng tin 
     })
 
     let { currentPage, newsPerPage } = pages
@@ -51,7 +68,6 @@ function ProductList(props) {
     let pageNumbers = [];
 
     for (let i = 1; i <= Math.ceil(products.length / newsPerPage); i++) {
-
         pageNumbers.push(i);
     }
 
@@ -88,6 +104,7 @@ function ProductList(props) {
                     <tr>
                         <th>STT</th>
                         <th>Mã</th>
+                        <th>Hình ảnh</th>
                         <th>Tên</th>
                         <th>Giá</th>
                         <th>Trạng thái</th>
